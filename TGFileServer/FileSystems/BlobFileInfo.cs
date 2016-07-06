@@ -23,7 +23,13 @@
             if (directory != null)
             {
                 IsDirectory = true;
-                Name = directory.Prefix.TrimEnd('/');
+
+                var name = directory.Prefix.TrimEnd('/');
+                if (!string.IsNullOrEmpty(directory.Parent.Prefix))
+                {
+                    name = name.Replace(directory.Parent.Prefix, "");
+                }
+                Name = name;
             }
             else
             {
