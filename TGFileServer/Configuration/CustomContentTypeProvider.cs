@@ -7,6 +7,7 @@
         public CustomContentTypeProvider()
         {
             Mappings.Add(".json", "application/json");
+            Mappings.Add(".exe", "application/x-msdownload");
         }
     }
 }
