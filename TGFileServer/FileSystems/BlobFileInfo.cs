@@ -2,6 +2,7 @@
 {
     using System;
     using System.IO;
+    using Exceptions;
     using Microsoft.Owin.FileSystems;
     using Microsoft.WindowsAzure.Storage.Blob;
 
@@ -54,7 +55,7 @@
             if (IsDirectory) return null;
 
             var cloudBlob = (CloudBlob)_blob;
-            return cloudBlob.OpenRead();
+            throw new RedirectException(cloudBlob.Uri);
         }
 
         public long Length { get; }

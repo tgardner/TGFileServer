@@ -127,8 +127,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\CustomContentTypeProvider.cs" />
+    <Compile Include="Exceptions\RedirectException.cs" />
     <Compile Include="FileSystems\AzureBlobFileSystem.cs" />
     <Compile Include="FileSystems\BlobFileInfo.cs" />
+    <Compile Include="Middleware\RedirectMiddleware.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

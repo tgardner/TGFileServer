@@ -10,6 +10,7 @@ namespace TGFileServer
     using FileSystems;
     using Microsoft.Owin.StaticFiles;
     using Microsoft.WindowsAzure.Storage;
+    using Middleware;
     using Owin;
 
     public class Startup
@@ -21,6 +22,8 @@ namespace TGFileServer
 
         public void Configuration(IAppBuilder app)
         {
+            app.Use<RedirectMiddleware>();
+
             var cloudStorageAccount = CloudStorageAccount.Parse(StorageConnectionString);
             var fileSystem = new AzureBlobFileSystem(cloudStorageAccount, StorageContainer);
 
