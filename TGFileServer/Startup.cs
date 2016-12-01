@@ -6,6 +6,7 @@ using TGFileServer;
 namespace TGFileServer
 {
     using System.Configuration;
+    using Configuration;
     using FileSystems;
     using Microsoft.Owin.StaticFiles;
     using Microsoft.WindowsAzure.Storage;
@@ -29,7 +30,12 @@ namespace TGFileServer
             var options = new FileServerOptions
             {
                 EnableDirectoryBrowsing = true,
-                FileSystem = fileSystem
+                EnableDefaultFiles = false,
+                FileSystem = fileSystem,
+                StaticFileOptions =
+                {
+                    ContentTypeProvider = new CustomContentTypeProvider()
+                }
             };
 
             app.UseFileServer(options);

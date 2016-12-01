@@ -45,7 +45,7 @@
 
             var directory = _container.GetDirectoryReference(subpath);
             contents = directory.ListBlobs().Select(blob => new BlobFileInfo(blob));
-            return contents.Any() || string.IsNullOrEmpty(subpath);
+            return contents.Any();
         }
 
         /// <summary>
