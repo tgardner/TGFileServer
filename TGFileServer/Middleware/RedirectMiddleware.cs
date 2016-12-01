@@ -18,6 +18,8 @@
             }
             catch (RedirectException e)
             {
+                context.Response.ContentLength = 0;
+                context.Response.Body.Close();
                 context.Response.Redirect(e.RedirectUri.AbsoluteUri);
             }
         }
