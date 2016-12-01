@@ -6,7 +6,6 @@ using TGFileServer;
 namespace TGFileServer
 {
     using System.Configuration;
-    using Configuration;
     using FileSystems;
     using Microsoft.Owin.StaticFiles;
     using Microsoft.WindowsAzure.Storage;
@@ -34,7 +33,7 @@ namespace TGFileServer
                 FileSystem = fileSystem,
                 StaticFileOptions =
                 {
-                    ContentTypeProvider = new CustomContentTypeProvider()
+                    ServeUnknownFileTypes = true
                 }
             };
 
